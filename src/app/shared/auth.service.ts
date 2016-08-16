@@ -7,21 +7,24 @@ declare var firebase: any;
 
 @Injectable()
 export class AuthService {
+  errormsg;
   constructor(private router: Router) {}
-
+  
   signupUser(user: User) {
     firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
       .catch(function (error) {
         console.log(error);
       });
+      
   }
 
   signinUser(user: User) {
     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
       .catch(function (error) {
-        console.log(error);
+        alert(error);
       });
   }
+  
 
   logout() {
     firebase.auth().signOut();

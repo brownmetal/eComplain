@@ -11,20 +11,22 @@ import { ProtectedComponent } from "./protected/protected.component";
 import { AuthGuard } from "./shared/auth.guard";
 import { AuthService } from "./shared/auth.service";
 import { routing } from "./app.routing";
-
-
+import { complaintService } from './shared/complaint.service';
+import { NewComplaint } from './new-complaint/new-complaint.component';
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
         SigninComponent,
         SignupComponent,
-        ProtectedComponent
+        ProtectedComponent,
+        NewComplaint
     ],
     imports: [BrowserModule, HttpModule, routing, ReactiveFormsModule],
     providers: [
         AuthGuard,
-        AuthService
+        AuthService,
+        complaintService
     ],
     bootstrap: [AppComponent]
 })
